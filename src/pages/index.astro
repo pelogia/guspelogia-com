@@ -5,7 +5,9 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION } from '../consts';
+
+const pageTitle = 'Gus Pelogia | SEO Product Manager & Speaker';
 import portrait from '../assets/pages/home/gus-portrait.jpg';
 import asSeenOn1 from '../assets/pages/home/as-seen-on-1.png';
 import asSeenOn2 from '../assets/pages/home/as-seen-on-2-crawlingmondays.jpeg';
@@ -21,7 +23,7 @@ const recentPosts = (await getCollection('blog'))
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={portrait} />
+		<BaseHead title={pageTitle} description={SITE_DESCRIPTION} image={portrait} />
 	</head>
 	<body>
 		<Header />
@@ -103,7 +105,7 @@ const recentPosts = (await getCollection('blog'))
 					{
 						recentPosts.map((post, i) => (
 							<li>
-								<a href={`/${post.id}/`}>
+								<a href={`/${post.id}`}>
 									<span class="num">{String(i + 1).padStart(2, '0')}</span>
 									<span class="title">{post.data.title}</span>
 									<span class="date">
