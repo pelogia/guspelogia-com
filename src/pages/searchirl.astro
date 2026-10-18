@@ -4,11 +4,98 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import hero from '../assets/pages/searchirl/hero.jpg';
-import gallery1 from '../assets/pages/searchirl/gallery-1.jpg';
-import gallery2 from '../assets/pages/searchirl/gallery-2.jpg';
+import event1Photo from '../assets/pages/searchirl/event-1.jpg';
+import event2Photo from '../assets/pages/searchirl/event-2.jpg';
+import event3Photo from '../assets/pages/searchirl/event-3.jpg';
+import event4Photo from '../assets/pages/searchirl/event-4.jpg';
+import event5Photo from '../assets/pages/searchirl/event-5.jpg';
+import event6Photo from '../assets/pages/searchirl/event-6.jpg';
+import event7Photo from '../assets/pages/searchirl/event-7.jpg';
 
 const title = 'SearchIRL - SEO Meetup in Dublin';
 const description = "Dublin's SEO meetup since 2025 — free, casual talks bringing together SEOs from students to industry leaders.";
+
+const events = [
+	{
+		name: 'SearchIRL1',
+		date: 'March 2025',
+		photo: event1Photo,
+		speakers: [
+			{ name: 'Luke McLeod', url: 'https://www.linkedin.com/in/luke-mcleod1/' },
+			{ name: 'Barry Adams', url: 'https://www.linkedin.com/in/barryadams/' },
+		],
+	},
+	{
+		name: 'SearchIRL2',
+		date: 'June 2025',
+		photo: event2Photo,
+		speakers: [
+			{ name: 'Joanna Isabella Formella', url: 'https://www.linkedin.com/in/joannaformella/' },
+			{ name: 'Aoife Mc Ilraith', url: 'https://www.linkedin.com/in/aoifem/' },
+		],
+	},
+	{
+		name: 'SearchIRL3',
+		date: 'August 2025',
+		photo: event3Photo,
+		speakers: [
+			{ name: 'Iky Tai', url: 'https://www.linkedin.com/in/iky-tai/' },
+			{ name: 'Ryan Jones', url: 'https://www.linkedin.com/in/ryan-g-jones/' },
+		],
+	},
+	{
+		name: 'SearchIRL4',
+		date: 'Nov 2025',
+		photo: event4Photo,
+		speakers: [
+			{ name: 'Rachel Stires', url: 'https://www.linkedin.com/in/rastires/' },
+			{ name: 'Nick Wildson', url: 'https://www.linkedin.com/in/nickwilsdon/' },
+		],
+	},
+	{
+		name: 'SearchIRL5',
+		date: 'April 2026',
+		photo: event5Photo,
+		galleryUrl: 'https://drive.google.com/drive/u/1/folders/1LFrxD05l0yzBA4k20Ae8-x5jkvzGkkkn',
+		speakers: [
+			{ name: 'Andrea Piackova', url: 'https://www.linkedin.com/in/andrea-piackova/' },
+			{ name: 'Katarina Dahlin', url: 'https://www.linkedin.com/in/katarina-dahlin/' },
+			{ name: 'John Coleman', url: 'https://www.linkedin.com/in/johncoleman10/' },
+		],
+	},
+	{
+		name: 'SearchIRL6',
+		date: 'Jul 2026',
+		photo: event7Photo,
+		galleryUrl: 'https://drive.google.com/drive/u/1/folders/1o-8v-X4-Iuq1Alo47FW--I2574AQuusS',
+		speakers: [
+			{ name: 'Philippine SIKORA', url: 'https://www.linkedin.com/in/philippinesikora/' },
+			{ name: 'Vanda Pókecz', url: 'https://www.linkedin.com/in/vanda-pokecz/' },
+		],
+	},
+	{
+		name: 'SearchIRL7',
+		date: 'Sep 2026',
+		photo: event6Photo,
+		galleryUrl: 'https://drive.google.com/drive/u/1/folders/1kK6YrO7I6eMMj9zdTkATAy8Cha7OO22Z',
+		speakers: [
+			{ name: 'Edgar Gil Cuesta', url: 'https://www.linkedin.com/in/edgar-gil-cuesta/?utm_source=luma' },
+			{ name: 'Simone de Paula', url: 'https://www.linkedin.com/in/simodepth96/?utm_source=luma' },
+			{ name: 'Rob Gardner', url: 'https://www.linkedin.com/in/robjgardner/?utm_source=luma' },
+			{ name: 'Darren McManus', url: 'https://www.linkedin.com/in/darrenmcmanus/?utm_source=luma' },
+			{ name: 'Katie Biggs', url: 'https://www.linkedin.com/in/katie-biggs-she-her/?utm_source=luma' },
+			{
+				name: 'Valentina Pozzi',
+				url: 'https://www.linkedin.com/in/valentina-pozzi-473878aa/?utm_source=luma',
+			},
+		],
+	},
+	{
+		name: 'SearchIRL8',
+		date: 'Nov 2026',
+		speakers: [],
+	},
+];
 ---
 
 <!doctype html>
@@ -41,14 +128,52 @@ const description = "Dublin's SEO meetup since 2025 — free, casual talks bring
 
 			<h2>Previous Events</h2>
 			<ul class="gallery">
-				<li>
-					<Image src={gallery1} alt="SearchIRL #5 photo gallery" width={366} height={364} />
-					<span class="caption">SearchIRL #5 — Photo Gallery</span>
-				</li>
-				<li>
-					<Image src={gallery2} alt="SearchIRL #1 after-movie" width={366} height={364} />
-					<span class="caption">SearchIRL #1 — After-Movie</span>
-				</li>
+				{
+					events.map((event) => (
+						<li>
+							{event.photo ? (
+								<Image
+									class="event-photo"
+									src={event.photo}
+									alt={`${event.name} photo`}
+									width={480}
+									height={360}
+								/>
+							) : (
+								<div class="placeholder-img">
+									<svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32">
+										<path
+											fill="currentColor"
+											d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+										/>
+									</svg>
+									<span>Photo coming soon</span>
+								</div>
+							)}
+							<span class="event-title">
+								{event.name} <span class="event-date">| {event.date}</span>
+							</span>
+							{event.speakers.length > 0 ? (
+								<ul class="speakers">
+									{event.speakers.map((speaker) => (
+										<li>
+											<a href={speaker.url} target="_blank" rel="noopener">
+												{speaker.name}
+											</a>
+										</li>
+									))}
+								</ul>
+							) : (
+								<p class="speakers-tbc">Speakers TBC</p>
+							)}
+							{event.galleryUrl && (
+								<a class="gallery-link" href={event.galleryUrl} target="_blank" rel="noopener">
+									View photo gallery ↗
+								</a>
+							)}
+						</li>
+					))
+				}
 			</ul>
 		</main>
 		<Footer />
@@ -71,25 +196,88 @@ const description = "Dublin's SEO meetup since 2025 — free, casual talks bring
 		margin: 1.5rem 0 2rem;
 	}
 	.gallery {
-		display: flex;
-		gap: 1rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
 		list-style: none;
 		padding: 0;
-		flex-wrap: wrap;
 	}
-	.gallery li {
-		flex: 1 1 220px;
-	}
-	.gallery img {
+	.gallery > li {
 		border: 1px solid rgb(var(--line));
-		width: 100%;
-		height: auto;
+		padding: 1rem;
 	}
-	.caption {
-		display: block;
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
+	.placeholder-img {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		aspect-ratio: 4 / 3;
+		border: 1px dashed rgb(var(--line));
 		color: rgb(var(--gray));
-		margin-top: 0.5rem;
+		background: rgba(var(--ink), 2%);
+	}
+	.placeholder-img span {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+	}
+	.event-photo {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border: 1px solid rgb(var(--line));
+	}
+	.gallery-link {
+		display: inline-block;
+		margin-top: 0.75rem;
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.gallery-link:hover {
+		text-decoration: underline;
+	}
+	.event-title {
+		display: block;
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 1rem;
+		color: rgb(var(--ink));
+		margin-top: 0.75rem;
+	}
+	.event-date {
+		font-family: var(--font-mono);
+		font-weight: 400;
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+	.speakers {
+		list-style: none;
+		margin: 0.5rem 0 0;
+		padding: 0;
+	}
+	.speakers-tbc {
+		margin: 0.5rem 0 0;
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+	.speakers li {
+		border-top: 1px solid rgb(var(--line));
+		padding: 0.4rem 0;
+	}
+	.speakers li:first-child {
+		border-top: none;
+	}
+	.speakers a {
+		display: inline-block;
+		font-size: 0.85rem;
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+	}
+	.speakers a:hover {
+		color: var(--accent);
 	}
 </style>
