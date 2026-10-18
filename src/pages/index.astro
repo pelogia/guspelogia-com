@@ -10,11 +10,7 @@ import { SITE_DESCRIPTION } from '../consts';
 
 const pageTitle = 'Gus Pelogia | SEO Product Manager & Speaker';
 import portrait from '../assets/pages/home/gus-portrait.jpg';
-import asSeenOn1 from '../assets/pages/home/as-seen-on-1.png';
-import asSeenOn2 from '../assets/pages/home/as-seen-on-2-crawlingmondays.jpeg';
-import asSeenOn3 from '../assets/pages/home/as-seen-on-3-candour.jpeg';
-import asSeenOn4 from '../assets/pages/home/as-seen-on-4-brightonseo.jpeg';
-import asSeenOn5 from '../assets/pages/home/as-seen-on-5-seofomo.png';
+import heroStage from '../assets/pages/home/hero-stage.jpg';
 
 const recentPosts = (await getCollection('blog'))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -30,67 +26,85 @@ const recentPosts = (await getCollection('blog'))
 		<Header />
 		<main class="home">
 			<section class="hero">
+				<div class="hero-media">
+					<Image
+						src={heroStage}
+						alt="Gus Pelogia speaking on stage at brightonSEO"
+						width={1800}
+						height={1000}
+					/>
+					<div class="hero-scrim"></div>
+				</div>
 				<div class="hero-copy">
-					<span class="eyebrow">§ 00 — SEO Product Manager at Indeed</span>
+					<span class="eyebrow">SEO Product Manager at Indeed</span>
 					<h1>Gus Pelogia</h1>
 					<ul class="social-bar">
-						<li><a href="https://www.twitter.com/pelogia">Twitter ↗</a></li>
 						<li><a href="https://www.linkedin.com/in/gpelogia/">LinkedIn ↗</a></li>
 					</ul>
 				</div>
-				<Image class="portrait" src={portrait} alt="Gus Pelogia" width={340} height={340} />
 			</section>
 
 			<hr class="rule" />
 
 			<section class="bio ticked">
-				<span class="eyebrow">§ 01 — About</span>
-				<p>I am a journalist turned SEO, living and breathing digital marketing since 2011.</p>
+				<span class="eyebrow">About</span>
 				<p>
-					Currently, I work as SEO Product Manager at Indeed, the #1 job site in the world with
-					over 250 million unique visitors every month.
+					Gus Pelogia is a journalist turned SEO and Product Manager, working in digital growth
+					since 2011.
 				</p>
 				<p>
-					I've done a bit of everything in SEO, working in-house and for agencies in small,
-					medium and large companies. I'm from Brazil, but my SEO career started almost
-					accidentally after I moved to Argentina – and continued across The Netherlands and
-					Ireland.
+					He currently works as an SEO Product Manager at Indeed, the world's #1 job site,
+					helping drive organic growth and build experiences that connect people with
+					opportunities. Gus also organizes SearchIRL, an SEO meetup held in Dublin since 2025,
+					with seven events so far.
 				</p>
 				<p>
-					Working with clients in all sections – travel, medical, educational, e-commerce,
-					services and more, my campaigns won several industry awards from The Drum Search Awards
-					and Irish Content Marketing Awards. I am also a judge for the EU Search Awards since
-					2021.
+					Throughout his career, Gus has worked with cross-functional teams, led organic growth
+					initiatives and contributed to award-winning campaigns recognised by The Drum Search
+					Awards and the Irish Content Marketing Awards. In 2026, he won an individual award at
+					SEO Camp, using his public persona as a use case for career growth.
 				</p>
 				<p>
-					Prior to my career in SEO, I graduated as a journalist from Faculdade Cásper Líbero in
-					2009 and worked for some of the biggest entertainment media outlets in Brazil such as
-					MTV, Terra, and R7. I also published two books in Portuguese – Diário de Palco and
-					Vomitando em Portunhol – both related to the punk/hardcore/emo music scene in Brazil.
+					He has also been a judge for the EU Search Awards since 2021 and spoken at
+					international industry events, including BrightonSEO (4x), SMX Advanced Europe, Search
+					'n Stuff, SEO Brein, Tech SEO Summit and many more.
+				</p>
+				<p>
+					Before moving into SEO, Gus graduated in Journalism from Faculdade Cásper Líbero in
+					2009 and worked for some of Brazil's biggest entertainment media outlets, including
+					MTV, Terra and R7. He is also the author of two books in Portuguese, <em>Diário de
+						Palco</em> and <em>Vomitando em Portunhol</em>, both rooted in Brazil's punk,
+					hardcore and emo music scenes.
 				</p>
 			</section>
 
 			<hr class="rule" />
 
-			<section class="as-seen-on">
-				<span class="eyebrow">§ 02 — As seen on</span>
-				<ul class="logo-grid">
-					<li><Image src={asSeenOn1} alt="" width={100} height={100} /></li>
-					<li><Image src={asSeenOn2} alt="Crawling Mondays" width={100} height={100} /></li>
-					<li><Image src={asSeenOn3} alt="Candour" width={100} height={100} /></li>
-					<li><Image src={asSeenOn4} alt="brightonSEO" width={100} height={100} /></li>
-					<li><Image src={asSeenOn5} alt="SEOFOMO" width={100} height={100} /></li>
-				</ul>
+			<section class="speaking">
+				<span class="eyebrow">Public speaking</span>
+				<p>Gus speaks at conferences and meetups across Europe on SEO and product management.</p>
+				<p><a href="/public-speaking">See the full list, photos and talk recordings →</a></p>
+				<SpeakingEvents />
 			</section>
 
 			<hr class="rule" />
 
 			<section class="podcasts">
-				<span class="eyebrow">§ 03 — Podcasts</span>
+				<span class="eyebrow">Podcasts</span>
 				<p>
 					I've been invited as a guest to several SEO and digital marketing podcasts, such as The
 					SEO Sprint, SEOSLY, Majestic SEO and more.
 				</p>
+				<iframe
+					class="spotify-embed"
+					data-testid="embed-iframe"
+					src="https://open.spotify.com/embed/playlist/1F3IcgldYZPkc1r68pegfy?utm_source=generator&si=afa3f32ce0e04578"
+					width="100%"
+					height="352"
+					allowfullscreen
+					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+					loading="lazy"
+				></iframe>
 				<p>
 					<a href="https://open.spotify.com/playlist/1F3IcgldYZPkc1r68pegfy"
 						>Listen to the full playlist on Spotify ↗</a
@@ -100,19 +114,8 @@ const recentPosts = (await getCollection('blog'))
 
 			<hr class="rule" />
 
-			<section class="speaking">
-				<span class="eyebrow">§ 04 — Public speaking</span>
-				<p>
-					I speak at conferences and meetups across Europe on SEO, product management and
-					search. <a href="/public-speaking">See the full list, photos and talk recordings →</a>
-				</p>
-				<SpeakingEvents />
-			</section>
-
-			<hr class="rule" />
-
 			<section class="recent-posts">
-				<span class="eyebrow">§ 05 — Recent writing</span>
+				<span class="eyebrow">Recent writing</span>
 				<ol>
 					{
 						recentPosts.map((post, i) => (
@@ -137,25 +140,59 @@ const recentPosts = (await getCollection('blog'))
 
 <style>
 	.home {
-		width: 860px;
+		width: 1100px;
 	}
 	.hero {
+		position: relative;
+		width: 100vw;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		min-height: 60vh;
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 2rem;
-		padding: 1rem 0 2rem;
+		align-items: flex-end;
+		overflow: hidden;
 	}
-	.hero h1 {
-		font-size: clamp(2.75rem, 7vw, 5rem);
-		margin: 0;
+	.hero-media {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
 	}
-	.portrait {
-		flex-shrink: 0;
-		width: 180px;
-		height: 180px;
+	.hero-media :global(img) {
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
-		border: 1px solid rgb(var(--line));
+		object-position: center 25%;
+		filter: grayscale(20%) contrast(1.05);
+		opacity: 0.3;
+	}
+	.hero-scrim {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgba(14, 16, 18, 0) 25%, rgba(14, 16, 18, 0.88) 100%);
+	}
+	.hero-copy {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 2rem 1.5rem 3rem;
+	}
+	.hero-copy .eyebrow {
+		color: rgba(255, 255, 255, 0.75);
+	}
+	.hero-copy h1 {
+		font-size: clamp(3rem, 8vw, 6rem);
+		margin: 0;
+		color: #fff;
+	}
+	.hero-copy .social-bar a {
+		color: rgba(255, 255, 255, 0.85);
+	}
+	.hero-copy .social-bar a:hover {
+		color: var(--accent);
 	}
 	.social-bar {
 		display: flex;
@@ -174,27 +211,20 @@ const recentPosts = (await getCollection('blog'))
 		color: var(--accent);
 	}
 	.bio,
-	.as-seen-on,
 	.podcasts,
 	.speaking,
 	.recent-posts {
 		padding: 2.5rem 0;
 	}
-	.speaking > p {
-		max-width: 640px;
+	.spotify-embed {
+		display: block;
+		width: 100%;
+		border: 0;
+		border-radius: 12px;
+		margin: 1.5rem 0;
 	}
 	.bio {
-		max-width: 640px;
-	}
-	.logo-grid {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 2rem;
-		list-style: none;
-		padding: 0;
-		align-items: center;
-		filter: grayscale(100%);
-		opacity: 0.75;
+		padding-left: 1.5rem;
 	}
 	.recent-posts ol {
 		list-style: none;
@@ -234,13 +264,11 @@ const recentPosts = (await getCollection('blog'))
 		white-space: nowrap;
 	}
 	@media (max-width: 640px) {
-		.hero {
-			flex-direction: column-reverse;
-			text-align: center;
-			align-items: center;
-		}
 		.social-bar {
 			justify-content: center;
+		}
+		.hero-copy h1 {
+			font-size: clamp(2.25rem, 12vw, 3.5rem);
 		}
 	}
 </style>

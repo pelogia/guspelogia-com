@@ -24,8 +24,7 @@ const years = [
 			{ city: 'Manchester, UK', name: 'HiveMCR' },
 			{ city: 'Šibenik, CR', name: 'Croatia SEO Summit' },
 			{ city: 'Berlin, DE', name: 'Campixxx' },
-			{ city: 'Berlin, DE', name: 'SMX Advanced (Panel)' },
-			{ city: 'Berlin, DE', name: 'SMX Advanced (Talk)' },
+			{ city: 'Berlin, DE', name: 'SMX Advanced' },
 			{ city: 'Brighton, UK', name: 'BrightonSEO' },
 			{ city: 'Zagreb, CR', name: 'Zagreb SEO Day' },
 		],
@@ -45,10 +44,12 @@ const years = [
 		</p>
 	</div>
 
-	<div class="years">
+	<p class="carousel-hint" aria-hidden="true">← Swipe to see other years →</p>
+
+	<div class="years" id="years-track">
 		{
 			years.map(({ year, events }) => (
-				<div class="year-group">
+				<div class="year-group" data-year={year}>
 					<span class="year-label">{year}</span>
 					<ul>
 						{events.map((event) => (
@@ -63,7 +64,50 @@ const years = [
 			))
 		}
 	</div>
+
+	<div class="year-dots" aria-hidden="true">
+		{
+			years.map(({ year }) => (
+				<button type="button" class="year-dot" data-year={year} aria-label={`Show ${year}`} />
+			))
+		}
+	</div>
 </div>
+
+<script>
+	const track = document.getElementById('years-track');
+	const groups = track ? Array.from(track.querySelectorAll('.year-group')) : [];
+	const dots = Array.from(document.querySelectorAll('.year-dot'));
+
+	if (track && groups.length && dots.length) {
+		const setActive = (year: string | undefined) => {
+			dots.forEach((dot) => {
+				dot.classList.toggle('active', dot.getAttribute('data-year') === year);
+			});
+		};
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const visible = entries
+					.filter((entry) => entry.isIntersecting)
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+				if (visible) {
+					setActive((visible.target as HTMLElement).dataset.year);
+				}
+			},
+			{ root: track, threshold: [0.5, 0.75] }
+		);
+		groups.forEach((group) => observer.observe(group));
+
+		dots.forEach((dot) => {
+			dot.addEventListener('click', () => {
+				const year = dot.getAttribute('data-year');
+				const target = groups.find((group) => (group as HTMLElement).dataset.year === year);
+				target?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+			});
+		});
+	}
+</script>
 
 <style>
 	.speaking-events {
@@ -81,17 +125,33 @@ const years = [
 		text-align: center;
 		margin: 0.75rem 0 0;
 	}
+	.carousel-hint {
+		display: none;
+	}
+	.year-dots {
+		display: none;
+	}
 	.years {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 0;
 		border: 1px solid rgb(var(--line));
 	}
 	.year-group {
 		border-left: 1px solid rgb(var(--line));
+		min-width: 0;
 	}
 	.year-group:first-child {
 		border-left: none;
+	}
+	.year-group:nth-child(1) {
+		order: 3;
+	}
+	.year-group:nth-child(2) {
+		order: 2;
+	}
+	.year-group:nth-child(3) {
+		order: 1;
 	}
 	.year-label {
 		display: block;
@@ -139,15 +199,67 @@ const years = [
 		flex-shrink: 0;
 	}
 	@media (max-width: 760px) {
+		.carousel-hint {
+			display: block;
+			text-align: center;
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			color: var(--accent);
+			letter-spacing: 0.04em;
+			margin: 0 0 0.75rem;
+			animation: carousel-hint-nudge 2.2s ease-in-out infinite;
+		}
 		.years {
-			grid-template-columns: 1fr;
+			display: flex;
+			gap: 0.75rem;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scroll-padding-left: 1rem;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+			border: none;
+			padding: 0.25rem 1rem 0.5rem;
+			margin: 0 -1rem;
+		}
+		.years::-webkit-scrollbar {
+			display: none;
 		}
 		.year-group {
-			border-left: none;
-			border-top: 1px solid rgb(var(--line));
+			flex: 0 0 85%;
+			scroll-snap-align: start;
+			border: 1px solid rgb(var(--line));
+			border-radius: 4px;
+			background: rgb(var(--paper));
 		}
-		.year-group:first-child {
-			border-top: none;
+		.year-dots {
+			display: flex;
+			justify-content: center;
+			gap: 0.5rem;
+			margin-top: 1rem;
+		}
+		.year-dot {
+			width: 8px;
+			height: 8px;
+			padding: 0;
+			border-radius: 50%;
+			border: 1px solid rgb(var(--line));
+			background: rgb(var(--paper));
+			cursor: pointer;
+		}
+		.year-dot.active {
+			background: var(--accent);
+			border-color: var(--accent);
+		}
+	}
+	@keyframes carousel-hint-nudge {
+		0%,
+		100% {
+			opacity: 0.6;
+			transform: translateX(0);
+		}
+		50% {
+			opacity: 1;
+			transform: translateX(3px);
 		}
 	}
 	@media (max-width: 560px) {

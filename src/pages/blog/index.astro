@@ -20,7 +20,7 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main class="index">
-			<span class="eyebrow">§ 00 — All writing</span>
+			<span class="eyebrow">All writing</span>
 			<h1>/blog</h1>
 			<hr class="rule" />
 			<ol>
@@ -45,7 +45,7 @@ const posts = (await getCollection('blog')).sort(
 
 <style>
 	.index {
-		width: 860px;
+		width: 75%;
 	}
 	.index h1 {
 		font-size: clamp(2.5rem, 6vw, 4rem);
@@ -95,6 +95,9 @@ const posts = (await getCollection('blog')).sort(
 		white-space: nowrap;
 	}
 	@media (max-width: 600px) {
+		.index {
+			width: 100%;
+		}
 		li a {
 			grid-template-columns: 2rem 1fr;
 		}
