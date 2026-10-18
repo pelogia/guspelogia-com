@@ -13,7 +13,18 @@ interface Props {
 	image?: ImageMetadata;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// With flat-file build output (astro.config.mjs: build.format = 'file'),
+// Astro.url.pathname reflects the literal output filename (e.g. /index.html
+// or /sweetspot.html) rather than the clean served URL — normalize it here
+// so every page's canonical/og:url is correct without each page needing to
+// know about this quirk.
+let pathname = Astro.url.pathname;
+if (pathname.endsWith('/index.html')) {
+	pathname = pathname.slice(0, -'index.html'.length);
+} else if (pathname.endsWith('.html')) {
+	pathname = pathname.slice(0, -'.html'.length);
+}
+const canonicalURL = new URL(pathname, Astro.site);
 
 const { title, description, image = FallbackImage } = Astro.props;
 ---
@@ -45,10 +56,10 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={new URL(image.src, canonicalURL)} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
