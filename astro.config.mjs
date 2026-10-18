@@ -13,6 +13,9 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   site: 'https://www.guspelogia.com',
   trailingSlash: 'never',
+  build: {
+    format: 'file',
+  },
   integrations: [mdx(), sitemap(), keystatic(), react()],
 
   fonts: [
