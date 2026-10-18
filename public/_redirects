@@ -5,5 +5,7 @@
 # collapse that to the clean URL so there's only one canonical path per page.
 # Force (!) is required since these .html files genuinely exist in the
 # build output and would otherwise be served directly, bypassing redirects.
+# Per-page rules for every other *.html path are auto-generated at build
+# time by scripts/generate-html-redirects.mjs (Netlify's redirect syntax
+# has no way to strip a suffix like ".html" with a wildcard).
 /index.html  /  301!
-/*.html  /:splat  301!
