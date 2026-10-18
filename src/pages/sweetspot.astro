@@ -1,0 +1,88 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import screenshot from '../assets/pages/sweetspot/screenshot.png';
+
+const title = 'The Sweet Spot SEO Tool (Traffic & Revenue Overlap)';
+const description =
+	'This tool allows you to find which group of pages (20%, 40%, 60%, 80%) make up the highest amount of traffic and revenue combined';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} image={screenshot} />
+	</head>
+	<body>
+		<Header />
+		<main class="prose">
+			<span class="eyebrow">§ 02 — SEO Tools</span>
+			<h1>The SweetSpot SEO Tool</h1>
+			<hr class="rule" />
+			<p>Traffic and revenue don't always go hand in hand. Which one to choose?</p>
+			<p>
+				The SEO SweetSpot tool allows you to find which group of pages (20%, 40%, 60%, 80%) make
+				up the highest amount of traffic and revenue combined, so you get the best results by
+				optimizing fewer pages.
+			</p>
+			<p>
+				If you're at a crossroads and need to pick which pages to optimize, this tool will give
+				you a quick overview and a detailed combination of which pages you should keep an eye on
+				to retain traffic and conversions (leads, revenue, etc) – the sweet spot to keep everyone
+				happy without ignoring one KPI or another.
+			</p>
+			<p>
+				<em
+					>The data you put here is only stored in your session. This is a homemade tool created
+					with help of ChatGPT. Check the data before sharing, issues may exist.</em
+				>
+			</p>
+
+			<h2>Use Cases</h2>
+			<ul>
+				<li>Your pages are mostly top of funnel, so high-traffic pages often drive low revenue</li>
+				<li>You only have time and budget to look after a limited group of pages</li>
+				<li>You want to balance your growth to include traffic and revenue</li>
+				<li>You need to understand what your business dependency is on a group of pages</li>
+			</ul>
+
+			<h2>Common Issues</h2>
+			<ul>
+				<li>Use the exact 'url', 'traffic' and 'revenue' headers</li>
+				<li>Don't leave blank cells. If 'traffic' or 'revenue' is zero, add "0" to each cell</li>
+				<li>Use "3000" instead of "3,000" for your numbers</li>
+			</ul>
+
+			<div class="tool-embed">
+				<!-- Paste the SweetSpot tool's iframe embed code here -->
+				<span class="placeholder-label">§ tool embed goes here</span>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prose {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+	.rule {
+		margin: 1.5rem 0 2rem;
+	}
+	.tool-embed {
+		margin-top: 2rem;
+		min-height: 400px;
+		border: 1px dashed rgb(var(--line));
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.placeholder-label {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+</style>

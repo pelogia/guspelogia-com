@@ -1,0 +1,228 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import portrait from '../assets/pages/home/gus-portrait.jpg';
+import asSeenOn1 from '../assets/pages/home/as-seen-on-1.png';
+import asSeenOn2 from '../assets/pages/home/as-seen-on-2-crawlingmondays.jpeg';
+import asSeenOn3 from '../assets/pages/home/as-seen-on-3-candour.jpeg';
+import asSeenOn4 from '../assets/pages/home/as-seen-on-4-brightonseo.jpeg';
+import asSeenOn5 from '../assets/pages/home/as-seen-on-5-seofomo.png';
+
+const recentPosts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={portrait} />
+	</head>
+	<body>
+		<Header />
+		<main class="home">
+			<section class="hero">
+				<div class="hero-copy">
+					<span class="eyebrow">§ 00 — SEO Product Manager at Indeed</span>
+					<h1>Gus Pelogia</h1>
+					<ul class="social-bar">
+						<li><a href="https://www.twitter.com/pelogia">Twitter ↗</a></li>
+						<li><a href="https://www.linkedin.com/in/gpelogia/">LinkedIn ↗</a></li>
+					</ul>
+				</div>
+				<Image class="portrait" src={portrait} alt="Gus Pelogia" width={340} height={340} />
+			</section>
+
+			<hr class="rule" />
+
+			<section class="bio ticked">
+				<span class="eyebrow">§ 01 — About</span>
+				<p>I am a journalist turned SEO, living and breathing digital marketing since 2011.</p>
+				<p>
+					Currently, I work as SEO Product Manager at Indeed, the #1 job site in the world with
+					over 250 million unique visitors every month.
+				</p>
+				<p>
+					I've done a bit of everything in SEO, working in-house and for agencies in small,
+					medium and large companies. I'm from Brazil, but my SEO career started almost
+					accidentally after I moved to Argentina – and continued across The Netherlands and
+					Ireland.
+				</p>
+				<p>
+					Working with clients in all sections – travel, medical, educational, e-commerce,
+					services and more, my campaigns won several industry awards from The Drum Search Awards
+					and Irish Content Marketing Awards. I am also a judge for the EU Search Awards since
+					2021.
+				</p>
+				<p>
+					Prior to my career in SEO, I graduated as a journalist from Faculdade Cásper Líbero in
+					2009 and worked for some of the biggest entertainment media outlets in Brazil such as
+					MTV, Terra, and R7. I also published two books in Portuguese – Diário de Palco and
+					Vomitando em Portunhol – both related to the punk/hardcore/emo music scene in Brazil.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="as-seen-on">
+				<span class="eyebrow">§ 02 — As seen on</span>
+				<ul class="logo-grid">
+					<li><Image src={asSeenOn1} alt="" width={100} height={100} /></li>
+					<li><Image src={asSeenOn2} alt="Crawling Mondays" width={100} height={100} /></li>
+					<li><Image src={asSeenOn3} alt="Candour" width={100} height={100} /></li>
+					<li><Image src={asSeenOn4} alt="brightonSEO" width={100} height={100} /></li>
+					<li><Image src={asSeenOn5} alt="SEOFOMO" width={100} height={100} /></li>
+				</ul>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="podcasts">
+				<span class="eyebrow">§ 03 — Podcasts</span>
+				<p>
+					I've been invited as a guest to several SEO and digital marketing podcasts, such as The
+					SEO Sprint, SEOSLY, Majestic SEO and more.
+				</p>
+				<p>
+					<a href="https://open.spotify.com/playlist/1F3IcgldYZPkc1r68pegfy"
+						>Listen to the full playlist on Spotify ↗</a
+					>
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="recent-posts">
+				<span class="eyebrow">§ 04 — Recent writing</span>
+				<ol>
+					{
+						recentPosts.map((post, i) => (
+							<li>
+								<a href={`/${post.id}/`}>
+									<span class="num">{String(i + 1).padStart(2, '0')}</span>
+									<span class="title">{post.data.title}</span>
+									<span class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</span>
+								</a>
+							</li>
+						))
+					}
+				</ol>
+				<p><a href="/blog">See all posts →</a></p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.home {
+		width: 860px;
+	}
+	.hero {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding: 1rem 0 2rem;
+	}
+	.hero h1 {
+		font-size: clamp(2.75rem, 7vw, 5rem);
+		margin: 0;
+	}
+	.portrait {
+		flex-shrink: 0;
+		width: 180px;
+		height: 180px;
+		object-fit: cover;
+		border: 1px solid rgb(var(--line));
+	}
+	.social-bar {
+		display: flex;
+		gap: 1.5rem;
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 0;
+	}
+	.social-bar a {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		text-decoration: none;
+		color: rgb(var(--gray-dark));
+	}
+	.social-bar a:hover {
+		color: var(--accent);
+	}
+	.bio,
+	.as-seen-on,
+	.podcasts,
+	.recent-posts {
+		padding: 2.5rem 0;
+	}
+	.bio {
+		max-width: 640px;
+	}
+	.logo-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		list-style: none;
+		padding: 0;
+		align-items: center;
+		filter: grayscale(100%);
+		opacity: 0.75;
+	}
+	.recent-posts ol {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.5em;
+	}
+	.recent-posts li {
+		border-bottom: 1px solid rgb(var(--line));
+	}
+	.recent-posts li a {
+		display: grid;
+		grid-template-columns: 3rem 1fr auto;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 1em 0.25em;
+		text-decoration: none;
+		color: inherit;
+	}
+	.recent-posts li a:hover .title {
+		color: var(--accent);
+	}
+	.recent-posts .num {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+	.recent-posts .title {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 1.05rem;
+		color: rgb(var(--ink));
+	}
+	.recent-posts .date {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		color: rgb(var(--gray));
+		white-space: nowrap;
+	}
+	@media (max-width: 640px) {
+		.hero {
+			flex-direction: column-reverse;
+			text-align: center;
+			align-items: center;
+		}
+		.social-bar {
+			justify-content: center;
+		}
+	}
+</style>

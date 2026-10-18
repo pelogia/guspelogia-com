@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import hero from '../assets/pages/searchirl/hero.jpg';
+import gallery1 from '../assets/pages/searchirl/gallery-1.jpg';
+import gallery2 from '../assets/pages/searchirl/gallery-2.jpg';
+
+const title = 'SearchIRL - SEO Meetup in Dublin';
+const description = "Dublin's SEO meetup since 2025 — free, casual talks bringing together SEOs from students to industry leaders.";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} image={hero} />
+	</head>
+	<body>
+		<Header />
+		<main class="prose">
+			<span class="eyebrow">§ 01 — Dublin's SEO meetup, since 2025</span>
+			<h1>SearchIRL</h1>
+			<Image class="hero-img" src={hero} alt="SearchIRL SEO meetup in Dublin" width={1200} height={438} />
+			<hr class="rule" />
+			<p>
+				Since early 2025, I organise an SEO meetup in Dublin. This event was born due to the lack
+				of other similar events in Ireland, so after years of just "thinking about it", I decided
+				to start my own event.
+			</p>
+			<p>
+				SearchIRL is a casual gathering, bringing together SEOs from all levels. From students
+				trying to find their direction in marketing to the biggest SEO names in Europe, we bring
+				everyone into the same room.
+			</p>
+			<p>
+				All events are free and all money given by sponsors is used to pay for the event – the
+				location, pizza, drinks, photographer and (soon) a fee for speakers who have been
+				travelling from other parts of Ireland and abroad to present at SearchIRL.
+			</p>
+
+			<h2>Previous Events</h2>
+			<ul class="gallery">
+				<li>
+					<Image src={gallery1} alt="SearchIRL #5 photo gallery" width={366} height={364} />
+					<span class="caption">SearchIRL #5 — Photo Gallery</span>
+				</li>
+				<li>
+					<Image src={gallery2} alt="SearchIRL #1 after-movie" width={366} height={364} />
+					<span class="caption">SearchIRL #1 — After-Movie</span>
+				</li>
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prose {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+	.hero-img {
+		width: 100%;
+		height: auto;
+		margin: 1.5rem 0;
+		border: 1px solid rgb(var(--line));
+	}
+	.rule {
+		margin: 1.5rem 0 2rem;
+	}
+	.gallery {
+		display: flex;
+		gap: 1rem;
+		list-style: none;
+		padding: 0;
+		flex-wrap: wrap;
+	}
+	.gallery li {
+		flex: 1 1 220px;
+	}
+	.gallery img {
+		border: 1px solid rgb(var(--line));
+		width: 100%;
+		height: auto;
+	}
+	.caption {
+		display: block;
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		color: rgb(var(--gray));
+		margin-top: 0.5rem;
+	}
+</style>

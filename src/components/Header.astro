@@ -1,0 +1,175 @@
+---
+import { SITE_TITLE } from '../consts';
+
+const navItems = [
+	{ href: '/searchirl', label: 'SearchIRL' },
+	{ href: '/public-speaking', label: 'Public Speaking' },
+	{ href: '/blog', label: 'Blog' },
+];
+const toolItems = [
+	{ href: '/sweetspot', label: 'Sweetspot (Traffic & Revenue)' },
+	{ href: '/user-agent-bulk-checker', label: 'User Agent Bulk Checker' },
+	{ href: '/knowledge-panel-tracker', label: 'Entity Tracker' },
+];
+const pathname = new URL(Astro.request.url).pathname;
+const isActive = (href: string) => pathname === href || pathname === `${href}/`;
+---
+
+<header>
+	<nav>
+		<a class="brand" href="/">{SITE_TITLE}</a>
+		<div class="internal-links">
+			{
+				navItems.map((item, i) => (
+					<a href={item.href} class:list={[{ active: isActive(item.href) }]}>
+						<span class="idx">[ {String(i + 1).padStart(2, '0')} ]</span> {item.label}
+					</a>
+				))
+			}
+			<details class="seo-tools">
+				<summary>
+					<span class="idx">[ 00 ]</span> SEO Tools
+				</summary>
+				<ul>
+					{
+						toolItems.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))
+					}
+				</ul>
+			</details>
+		</div>
+		<div class="social-links">
+			<a href="https://www.linkedin.com/in/gpelogia/" target="_blank" rel="noopener">
+				<span class="sr-only">Gus Pelogia on LinkedIn</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="20" height="20">
+					<path
+						fill="currentColor"
+						d="M13.5 0h-11A2.5 2.5 0 0 0 0 2.5v11A2.5 2.5 0 0 0 2.5 16h11a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 13.5 0zM4.94 13.5H2.68V6.2h2.26v7.3zM3.81 5.2a1.31 1.31 0 1 1 0-2.62 1.31 1.31 0 0 1 0 2.62zM13.5 13.5h-2.25V9.98c0-.84-.3-1.41-1.05-1.41-.57 0-.91.39-1.06.76-.05.13-.07.32-.07.5v3.67H6.82s.03-5.95 0-7.3h2.25v1.03a2.24 2.24 0 0 1 2.03-1.12c1.48 0 2.4.97 2.4 3.06v4.33z"
+					></path>
+				</svg>
+			</a>
+			<a href="https://open.spotify.com/playlist/1F3IcgldYZPkc1r68pegfy" target="_blank" rel="noopener">
+				<span class="sr-only">Gus Pelogia's podcast appearances on Spotify</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="20" height="20">
+					<path
+						fill="currentColor"
+						d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.67 11.55a.5.5 0 0 1-.69.17c-1.9-1.16-4.29-1.42-7.1-.78a.5.5 0 0 1-.22-.98c3.08-.7 5.72-.4 7.85.92a.5.5 0 0 1 .16.67zm.98-2.18a.62.62 0 0 1-.85.2c-2.17-1.33-5.48-1.72-8.05-.94a.62.62 0 1 1-.36-1.19c2.93-.89 6.58-.46 9.07 1.07a.62.62 0 0 1 .19.86zm.09-2.27C10.3 5.6 5.76 5.45 3.1 6.26a.74.74 0 1 1-.43-1.42c3.06-.93 8.12-.75 11.32 1.17a.74.74 0 0 1-.76 1.27z"
+					></path>
+				</svg>
+			</a>
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		background: rgb(var(--paper));
+		border-bottom: 1px solid rgb(var(--line));
+		position: sticky;
+		top: 0;
+		z-index: 20;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 0 1em;
+	}
+	.brand {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 1.1rem;
+		color: rgb(var(--ink));
+		text-decoration: none;
+		padding: 1em 0;
+	}
+	.internal-links {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	nav a {
+		padding: 1.4em 0.6em;
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+	nav a.active {
+		color: var(--accent);
+	}
+	nav a:hover {
+		color: var(--accent);
+	}
+	.idx {
+		font-family: var(--font-mono);
+		font-size: 0.75em;
+		color: rgb(var(--gray));
+	}
+	.seo-tools {
+		position: relative;
+		display: inline-block;
+	}
+	.seo-tools summary {
+		padding: 1.4em 0.6em;
+		cursor: pointer;
+		list-style: none;
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: rgb(var(--gray-dark));
+	}
+	.seo-tools summary::-webkit-details-marker {
+		display: none;
+	}
+	.seo-tools[open] summary {
+		color: var(--accent);
+	}
+	.seo-tools ul {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		margin: 0;
+		padding: 0.5em 0;
+		list-style: none;
+		background: rgb(var(--paper));
+		border: 1px solid rgb(var(--line));
+		box-shadow: var(--box-shadow);
+		min-width: 240px;
+		z-index: 10;
+	}
+	.seo-tools li a {
+		display: block;
+		padding: 0.6em 1em;
+		white-space: nowrap;
+		font-size: 0.85rem;
+	}
+	.social-links {
+		display: flex;
+		gap: 1em;
+		color: rgb(var(--gray-dark));
+	}
+	.social-links a {
+		padding: 0;
+		display: flex;
+	}
+	@media (max-width: 860px) {
+		.social-links {
+			display: none;
+		}
+		.internal-links {
+			gap: 0;
+		}
+		nav a,
+		.seo-tools summary {
+			padding: 1em 0.4em;
+			font-size: 0.8rem;
+		}
+		.idx {
+			display: none;
+		}
+	}
+</style>

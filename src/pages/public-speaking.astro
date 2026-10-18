@@ -1,0 +1,130 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import photo1 from '../assets/pages/public-speaking/photo-1.jpg';
+import photo2 from '../assets/pages/public-speaking/photo-2.jpg';
+import photo3 from '../assets/pages/public-speaking/photo-3.jpg';
+
+const title = 'SEO Public Speaker | Gus Pelogia';
+const description =
+	'Gus Pelogia speaks on SEO, product management and search at conferences and meetups across Europe.';
+
+const videos = [
+	{
+		id: 'DMPqnozRCvc',
+		title: 'Think like a product manager: optimize beyond SEO - Gus Pelogia - brightonSEO September 2023',
+	},
+	{ id: 'THzBTNk9DEc', title: 'SEO Reporting: How to Develop Effective & Impactful SEO Reports' },
+	{ id: '5nmnihigV4A', title: 'Interview with Gus Pelogia, an SEO Product Manager at Indeed' },
+	{
+		id: 'PT3u8qGC2aE',
+		title: 'Wolfgang Essentials 2019 - Winning The Battle Against OTAs in Organic Search Results',
+	},
+	{ id: 'E6Zqj3bv1YY', title: 'Get more buy-in from stakeholders—Gus Pelogia' },
+	{
+		id: '0xYB971rf7w',
+		title: 'Gus Pelogia Shares His Knowledge Panel Secrets - AMA (AskMeAnything) Honest Expert Answers',
+	},
+	{ id: 'j1ZtGyeOj7Q', title: 'Using Screaming Frog to Build PR Stories - Gus Pelogia, Wolfgang Digital' },
+	{
+		id: 'Mx7O2IUgelg',
+		title: 'Brand will become a more important part of the user journey - with Gus Pelogia from Teamwork',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} image={photo2} />
+	</head>
+	<body>
+		<Header />
+		<main class="prose">
+			<span class="eyebrow">§ 03 — Looking for an SEO speaker?</span>
+			<h1>Public Speaking</h1>
+			<hr class="rule" />
+			<p>
+				I started my career as a public speaker in 2018 for two reasons: because all the SEOs I
+				admire and trust are speakers, and to get out of my comfort zone. I had no idea I would
+				actually enjoy it SO much and that this would become such an important part of my career.
+			</p>
+			<p>
+				I love the challenge of public speaking and the energy of meeting marketers in person.
+				From meet-ups speaking to 40 people to large conferences presenting in front of over 400
+				clients. This includes events such as brightonSEO, Search 'n Stuff and LondonSEOXL.
+			</p>
+			<p>
+				My talks aim to simplify complex concepts and allow the audience to learn something they
+				can apply to their SEO work, regardless of their SEO skills. I adapt to the event and the
+				audience to ensure the time marketers spend watching me is useful to them.
+			</p>
+			<p>
+				Over the years, I've spoken at events in Dublin, London, Oslo, Leeds, Hamburg, Amsterdam,
+				Zagreb and many more. Maybe you'll book me next?
+			</p>
+
+			<ul class="gallery">
+				<li><Image src={photo1} alt="Gus Pelogia speaking at a conference" width={480} height={324} /></li>
+				<li><Image src={photo2} alt="Gus Pelogia on stage at a conference" width={480} height={324} /></li>
+				<li><Image src={photo3} alt="Gus Pelogia presenting to an audience" width={480} height={324} /></li>
+			</ul>
+
+			<h2>See Gus in action</h2>
+			<ul class="video-grid">
+				{
+					videos.map((video) => (
+						<li>
+							<iframe
+								width="100%"
+								height="220"
+								src={`https://www.youtube.com/embed/${video.id}`}
+								title={video.title}
+								loading="lazy"
+								allowfullscreen
+							/>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prose {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+	.rule {
+		margin: 1.5rem 0 2rem;
+	}
+	.gallery {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		list-style: none;
+		padding: 0;
+		margin: 2rem 0;
+	}
+	.gallery img {
+		border: 1px solid rgb(var(--line));
+		width: 100%;
+		max-width: 300px;
+		height: auto;
+	}
+	.video-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
+		list-style: none;
+		padding: 0;
+	}
+	.video-grid iframe {
+		border: 1px solid rgb(var(--line));
+	}
+</style>
