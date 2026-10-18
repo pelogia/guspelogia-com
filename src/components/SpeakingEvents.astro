@@ -24,8 +24,7 @@ const years = [
 			{ city: 'Manchester, UK', name: 'HiveMCR' },
 			{ city: 'Šibenik, CR', name: 'Croatia SEO Summit' },
 			{ city: 'Berlin, DE', name: 'Campixxx' },
-			{ city: 'Berlin, DE', name: 'SMX Advanced (Panel)' },
-			{ city: 'Berlin, DE', name: 'SMX Advanced (Talk)' },
+			{ city: 'Berlin, DE', name: 'SMX Advanced' },
 			{ city: 'Brighton, UK', name: 'BrightonSEO' },
 			{ city: 'Zagreb, CR', name: 'Zagreb SEO Day' },
 		],
@@ -83,15 +82,26 @@ const years = [
 	}
 	.years {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 0;
 		border: 1px solid rgb(var(--line));
+		margin: 0 auto;
 	}
 	.year-group {
 		border-left: 1px solid rgb(var(--line));
+		min-width: 0;
 	}
 	.year-group:first-child {
 		border-left: none;
+	}
+	.year-group:nth-child(1) {
+		order: 1;
+	}
+	.year-group:nth-child(2) {
+		order: 2;
+	}
+	.year-group:nth-child(3) {
+		order: 3;
 	}
 	.year-label {
 		display: block;
@@ -140,14 +150,33 @@ const years = [
 	}
 	@media (max-width: 760px) {
 		.years {
-			grid-template-columns: 1fr;
+			display: flex;
+			gap: 0.75rem;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scroll-padding-left: 1rem;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+			border: none;
+			padding: 0.25rem 1rem 0.5rem;
+		}
+		.years::-webkit-scrollbar {
+			display: none;
 		}
 		.year-group {
-			border-left: none;
-			border-top: 1px solid rgb(var(--line));
+			flex: 0 0 85%;
+			scroll-snap-align: start;
+			border: 1px solid rgb(var(--line));
 		}
-		.year-group:first-child {
-			border-top: none;
+		/* Reverse visual order so 2027 (the most recent) shows first in the carousel. */
+		.year-group:nth-child(1) {
+			order: 3;
+		}
+		.year-group:nth-child(2) {
+			order: 2;
+		}
+		.year-group:nth-child(3) {
+			order: 1;
 		}
 	}
 	@media (max-width: 560px) {
