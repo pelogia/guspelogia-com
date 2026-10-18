@@ -1,2 +1,9 @@
 /40b  /  301
 /blog/categories/blog  /blog  301
+
+# Flat build output (page.html) is also reachable as page.html directly;
+# collapse that to the clean URL so there's only one canonical path per page.
+# Force (!) is required since these .html files genuinely exist in the
+# build output and would otherwise be served directly, bypassing redirects.
+/index.html  /  301!
+/*.html  /:splat  301!
