@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import SpeakingEvents from '../components/SpeakingEvents.astro';
 import photo1 from '../assets/pages/public-speaking/photo-1.jpg';
 import photo2 from '../assets/pages/public-speaking/photo-2.jpg';
 import photo3 from '../assets/pages/public-speaking/photo-3.jpg';
@@ -71,6 +72,9 @@ const videos = [
 				<li><Image src={photo2} alt="Gus Pelogia on stage at a conference" width={480} height={324} /></li>
 				<li><Image src={photo3} alt="Gus Pelogia presenting to an audience" width={480} height={324} /></li>
 			</ul>
+
+			<h2>Where I've spoken</h2>
+			<SpeakingEvents />
 
 			<h2>See Gus in action</h2>
 			<ul class="video-grid">

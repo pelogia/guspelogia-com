@@ -1,0 +1,149 @@
+---
+import EuropeMap from './EuropeMap.astro';
+
+const countriesSpoken = ['ie', 'gb', 'de', 'tr', 'hr', 'nl', 'it', 'no'];
+
+const years = [
+	{
+		year: '2025',
+		events: [
+			{ city: 'Oslo', name: 'Performancekonf' },
+			{ city: 'Hamburg', name: 'Tech SEO Summit' },
+			{ city: 'Zagreb', name: 'Zagreb SEO' },
+			{ city: 'Manchester', name: 'Up North' },
+			{ city: 'Munich', name: 'SEO Weisn' },
+			{ city: "Antalya", name: "Search 'n Stuff" },
+			{ city: 'Amsterdam', name: 'Spotlight' },
+		],
+	},
+	{
+		year: '2026',
+		events: [
+			{ city: 'Rotterdam, NL', name: 'SEO Brein' },
+			{ city: 'Brighton, UK', name: 'BrightonSEO' },
+			{ city: 'Manchester, UK', name: 'HiveMCR' },
+			{ city: 'Šibenik, CR', name: 'Croatia SEO Summit' },
+			{ city: 'Berlin, DE', name: 'Campixxx' },
+			{ city: 'Berlin, DE', name: 'SMX Advanced (Panel)' },
+			{ city: 'Berlin, DE', name: 'SMX Advanced (Talk)' },
+			{ city: 'Brighton, UK', name: 'BrightonSEO' },
+			{ city: 'Zagreb, CR', name: 'Zagreb SEO Day' },
+		],
+	},
+	{
+		year: '2027',
+		events: [{ city: 'Amsterdam, NL', name: 'Friends of Search' }],
+	},
+];
+---
+
+<div class="speaking-events">
+	<div class="map-wrap">
+		<EuropeMap highlighted={countriesSpoken} />
+		<p class="map-caption">
+			Countries spoken in: Ireland, UK, Germany, Turkey, Croatia, Netherlands, Italy, Norway
+		</p>
+	</div>
+
+	<div class="years">
+		{
+			years.map(({ year, events }) => (
+				<div class="year-group">
+					<span class="year-label">{year}</span>
+					<ul>
+						{events.map((event) => (
+							<li>
+								<span class="city">{event.city}</span>
+								<span class="name">{event.name}</span>
+								<span class="dot" aria-hidden="true" />
+							</li>
+						))}
+					</ul>
+				</div>
+			))
+		}
+	</div>
+</div>
+
+<style>
+	.speaking-events {
+		display: grid;
+		gap: 2.5rem;
+	}
+	.map-wrap {
+		max-width: 520px;
+		margin: 0 auto;
+	}
+	.map-caption {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		color: rgb(var(--gray));
+		text-align: center;
+		margin: 0.75rem 0 0;
+	}
+	.years {
+		display: grid;
+		gap: 0;
+		border: 1px solid rgb(var(--line));
+	}
+	.year-group {
+		border-bottom: 1px solid rgb(var(--line));
+	}
+	.year-group:last-child {
+		border-bottom: none;
+	}
+	.year-label {
+		display: block;
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		font-weight: 500;
+		color: var(--accent);
+		letter-spacing: 0.04em;
+		padding: 1rem 1.25rem 0.5rem;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0 1.25rem 0.5rem;
+	}
+	li {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 0.6rem 0;
+		border-top: 1px solid rgb(var(--line));
+	}
+	li:first-child {
+		border-top: none;
+	}
+	.city {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		color: rgb(var(--gray));
+		min-width: 9rem;
+		flex-shrink: 0;
+	}
+	.name {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 1rem;
+		color: rgb(var(--ink));
+		flex: 1;
+	}
+	.dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--accent);
+		flex-shrink: 0;
+	}
+	@media (max-width: 560px) {
+		li {
+			flex-wrap: wrap;
+		}
+		.city {
+			min-width: 0;
+			width: 100%;
+		}
+	}
+</style>
