@@ -1,63 +1,61 @@
-# Astro Starter Kit: Blog
+# guspelogia.com
 
-```sh
-npm create astro@latest -- --template blog
+Gus Pelogia's personal site. Built with [Astro](https://astro.build), content in Markdown, edited via [Keystatic](https://keystatic.com), hosted on [Netlify](https://netlify.com) and deployed from [GitHub](https://github.com/pelogia/guspelogia-com).
+
+## Publishing a blog post (no code required)
+
+1. Go to **[guspelogia-com.netlify.app/keystatic](https://guspelogia-com.netlify.app/keystatic)** and log in with GitHub.
+2. Click **Blog Posts → Add**, fill in title, description, dates, hero image and content.
+3. Click **Save** — this commits directly to the `main` branch on GitHub.
+4. Netlify rebuilds and redeploys automatically (~1 minute). No pull request, no review step — it goes live as soon as you save.
+
+The slug (and URL) is generated from the title automatically. To edit an existing post, click it in the list.
+
+## Editing a static page (SearchIRL, Public Speaking, SEO Tools, Home)
+
+These pages aren't in Keystatic — they're plain Astro files, since they're mostly fixed layout rather than ongoing writing:
+
+- `src/pages/index.astro` — home
+- `src/pages/searchirl.astro`
+- `src/pages/public-speaking.astro`
+- `src/pages/sweetspot.astro`
+- `src/pages/user-agent-bulk-checker.astro`
+
+To change one: edit the file, run `npm run dev` to preview at `localhost:4321`, then commit and push. Netlify deploys automatically on every push to `main`.
+
+## Local setup
+
+Requires Node ≥22.22 (the repo's system default may be older — this project uses [nvm](https://github.com/nvm-sh/nvm) to pin the right version via `.nvmrc`).
+
+```bash
+nvm use        # or: nvm install, if you don't have 22.22 yet
+npm install
+npm run dev    # localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+`npm run build` builds to `dist/`; `npx astro check` type-checks the project.
 
-Features:
+Keystatic runs against your local filesystem in dev (no login needed) and against GitHub (OAuth login) in production — see `keystatic.config.ts`.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Handling Dependabot PRs
 
-## 🚀 Project Structure
+Dependabot opens a pull request on GitHub whenever a dependency has an update (weekly, or immediately for security fixes). Each PR gets a Netlify deploy preview automatically — check the preview link in the PR, and if the site still looks right, merge it. If Astro or Keystatic get a major version bump, read the PR description for breaking changes before merging.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+src/
+  content/blog/<slug>/index.md   # one folder per post, written as Markdown
+  assets/uploads/blog/            # images used in posts (Keystatic uploads here)
+  assets/pages/                   # images used by the static pages above
+  pages/                          # routes — blog posts render via [...slug].astro
+  components/, layouts/, styles/  # shared UI and the design system
+keystatic.config.ts               # defines what's editable in the CMS
+astro.config.mjs                  # integrations, fonts, site URL
+netlify.toml                      # build command and Node version for Netlify
+public/_redirects                 # 301s for retired Wix URLs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Redirects
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+`public/_redirects` holds 301s for Wix URLs that no longer exist on the new site (e.g. `/40b`, `/blog/categories/blog`). Every other URL from the old site was preserved as-is. If you retire a page in the future, add a redirect line there rather than letting it 404.
