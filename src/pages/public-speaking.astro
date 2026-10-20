@@ -12,9 +12,13 @@ const title = 'SEO Public Speaker | Gus Pelogia';
 const description =
 	'Gus Pelogia speaks on SEO, product management and search at conferences and meetups across Europe.';
 
+const featuredVideo = {
+	id: 'KTEtucpA3IE',
+	title: 'SEO Use Cases for Vector Embeddings - Gus Pelogia | SnS Antalya 2025',
+};
+
 const videos = [
 	{ id: '41oZez-O3Mk', title: 'Vibe Code Your Own SEO Tools With LLMs | Whiteboard Friday | Gus Pelogia' },
-	{ id: 'KTEtucpA3IE', title: 'SEO Use Cases for Vector Embeddings - Gus Pelogia | SnS Antalya 2025' },
 	{
 		id: 'FVwFC4T8jOQ',
 		title: 'How to write THE perfect SEO ticket for your devs - Gus Pelogia - brightonSEO April 2024',
@@ -43,6 +47,16 @@ const videos = [
 	<body>
 		<Header />
 		<main class="prose">
+			<div class="featured-video">
+				<iframe
+					width="100%"
+					height="480"
+					src={`https://www.youtube.com/embed/${featuredVideo.id}`}
+					title={featuredVideo.title}
+					loading="lazy"
+					allowfullscreen
+				/>
+			</div>
 			<span class="eyebrow">Looking for an SEO speaker?</span>
 			<h1>Public Speaking</h1>
 			<hr class="rule" />
@@ -114,9 +128,20 @@ const videos = [
 	.rule {
 		margin: 1.5rem 0 2rem;
 	}
+	.featured-video {
+		margin: 0 0 2rem;
+	}
+	.featured-video iframe {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		height: auto;
+		border: 1px solid rgb(var(--line));
+	}
 	.gallery {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
 		gap: 1rem;
 		list-style: none;
 		padding: 0;

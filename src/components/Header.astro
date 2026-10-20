@@ -104,10 +104,11 @@ const isActive = (href: string) => pathname === href || pathname === `${href}/`;
 		position: relative;
 		display: flex;
 		align-items: center;
+		justify-content: flex-start;
 		gap: 1.5rem;
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 0 1em;
+		width: 100%;
+		margin: 0;
+		padding: 0 1.5em;
 	}
 	.brand {
 		order: 0;
@@ -117,6 +118,8 @@ const isActive = (href: string) => pathname === href || pathname === `${href}/`;
 		font-size: 1.43rem;
 		color: rgb(var(--ink));
 		text-decoration: none;
+		text-align: left;
+		margin: 0;
 		padding: 1em 0;
 		white-space: nowrap;
 	}
@@ -217,6 +220,10 @@ const isActive = (href: string) => pathname === href || pathname === `${href}/`;
 	}
 
 	@media (max-width: 760px) {
+		.brand {
+			font-size: 1.716rem;
+			margin-right: auto;
+		}
 		.nav-panel {
 			display: flex;
 			position: fixed;
@@ -243,16 +250,17 @@ const isActive = (href: string) => pathname === href || pathname === `${href}/`;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
-			gap: 0.2rem;
-			padding: 0.5em 0.25em;
-			font-size: 0.68rem;
+			justify-content: flex-start;
+			gap: 0.25rem;
+			padding: 0.65em 0.25em 0.5em;
+			font-size: 0.82rem;
 			text-align: center;
 		}
 		.nav-icon {
 			display: inline-flex;
-			width: 22px;
-			height: 22px;
+			width: 26px;
+			height: 26px;
+			flex-shrink: 0;
 		}
 		.seo-tools {
 			flex: 1;
@@ -264,16 +272,16 @@ const isActive = (href: string) => pathname === href || pathname === `${href}/`;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
-			gap: 0.2rem;
-			padding: 0.5em 0.25em;
-			font-size: 0.68rem;
+			justify-content: flex-start;
+			gap: 0.25rem;
+			padding: 0.65em 0.25em 0.5em;
+			font-size: 0.82rem;
 			text-align: center;
 		}
 		.seo-tools ul {
 			position: fixed;
 			top: auto;
-			bottom: calc(60px + env(safe-area-inset-bottom));
+			bottom: calc(90px + env(safe-area-inset-bottom));
 			left: 0;
 			right: 0;
 			border: none;
@@ -304,7 +312,7 @@ const isActive = (href: string) => pathname === href || pathname === `${href}/`;
 <style is:global>
 	@media (max-width: 760px) {
 		body {
-			padding-bottom: calc(60px + env(safe-area-inset-bottom));
+			padding-bottom: calc(90px + env(safe-area-inset-bottom));
 		}
 	}
 </style>
