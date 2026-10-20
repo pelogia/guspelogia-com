@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import SpeakingEvents from '../components/SpeakingEvents.astro';
-import { SITE_DESCRIPTION } from '../consts';
+import { LINKEDIN_FOLLOWERS, SITE_DESCRIPTION } from '../consts';
 
 const pageTitle = 'Gus Pelogia | SEO Product Manager & Speaker';
 import portrait from '../assets/pages/home/gus-portrait.jpg';
@@ -39,7 +39,10 @@ const recentPosts = (await getCollection('blog'))
 					<span class="eyebrow">SEO Product Manager at Indeed</span>
 					<h1>Gus Pelogia</h1>
 					<ul class="social-bar">
-						<li><a href="https://www.linkedin.com/in/gpelogia/">LinkedIn ↗</a></li>
+						<li>
+							<a href="https://www.linkedin.com/in/gpelogia/">LinkedIn ↗</a>
+							<span class="follower-count">{LINKEDIN_FOLLOWERS} followers</span>
+						</li>
 					</ul>
 				</div>
 			</section>
@@ -201,11 +204,21 @@ const recentPosts = (await getCollection('blog'))
 		padding: 0;
 		margin: 1rem 0 0;
 	}
+	.social-bar li {
+		display: flex;
+		align-items: baseline;
+		gap: 0.5rem;
+	}
 	.social-bar a {
 		font-family: var(--font-mono);
 		font-size: 0.85rem;
 		text-decoration: none;
 		color: rgb(var(--gray-dark));
+	}
+	.follower-count {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		color: rgba(255, 255, 255, 0.55);
 	}
 	.social-bar a:hover {
 		color: var(--accent);

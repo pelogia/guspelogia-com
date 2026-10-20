@@ -4,3 +4,6 @@
 export const SITE_TITLE = 'Gus Pelogia';
 export const SITE_DESCRIPTION =
 	'Gus Pelogia is a journalist turned SEO, working in marketing since 2012. He’s an SEO Product Manager at Indeed, working in a cross-functional team with engineers and product managers.';
+
+// Update this manually whenever you check LinkedIn — no public API exists for personal-profile follower counts.
+export const LINKEDIN_FOLLOWERS = '13K';
