@@ -5,7 +5,7 @@ description: >-
   prototypes to prioritising opportunities, working with engineers and using AI
   to drive SEO impact.
 pubDate: 2026-11-01
-heroImage: ../../../assets/uploads/blog/seo-product-manager-job-2026/heroImage.jpeg
+heroImage: ../../../assets/uploads/blog/seo-product-manager-job-2026/heroImage.JPEG
 ---
 Back in 2023, I wrote [a blog post with this same title](https://www.guspelogia.com/seo-product-manager-job). It was time to update it. Product Managers working in SEO are still a niche within our (already niche) industry, and I imagine the experience of PMs varies widely from company to company.
 
