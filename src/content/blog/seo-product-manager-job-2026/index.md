@@ -5,6 +5,7 @@ description: >-
   prototypes to prioritising opportunities, working with engineers and using AI
   to drive SEO impact.
 pubDate: 2026-11-01
+heroImage: ../../../assets/uploads/blog/seo-product-manager-job-2026/heroImage.JPEG
 ---
 # So… What does an SEO Product Manager do in 2026?
 
