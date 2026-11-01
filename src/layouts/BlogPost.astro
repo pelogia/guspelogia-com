@@ -34,7 +34,15 @@ const { title, description, pubDate, updatedDate, heroImage, heroImageAlt } = As
 					</span>
 					<h1>{title}</h1>
 				</div>
-				{heroImage && <Image class="hero-image" width={1020} height={510} src={heroImage} alt={heroImageAlt ?? ''} />}
+				{heroImage && (
+					<Image
+						class="hero-image"
+						src={heroImage}
+						widths={[640, 1020, 1840]}
+						sizes="(max-width: 600px) 100vw, 75vw"
+						alt={heroImageAlt ?? ''}
+					/>
+				)}
 				<hr class="rule" />
 				<div class="body">
 					<slot />
