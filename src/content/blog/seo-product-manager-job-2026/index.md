@@ -7,7 +7,7 @@ description: >-
 pubDate: 2026-11-01
 heroImage: ../../../assets/uploads/blog/seo-product-manager-job-2026/heroImage.JPEG
 ---
-Back in 2023, I wrote a blog post with this same title. It was time to update it. Product Managers working in SEO are still a niche within our (already niche) industry, and I imagine the experience of PMs varies widely from company to company.
+Back in 2023, I wrote [a blog post with this same title](https://www.guspelogia.com/seo-product-manager-job). It was time to update it. Product Managers working in SEO are still a niche within our (already niche) industry, and I imagine the experience of PMs varies widely from company to company.
 
 For instance, I have my own engineering teams. It's a luxury not all SEO PMs have. I know of others who still have another layer of PMs between them and the SWEs (Software Engineers). It comes with its own challenges, such as making sure nine engineers have enough relevant work to do. AI has made them much faster, which forces me to step up too. There isn't a single quiet day.
 
