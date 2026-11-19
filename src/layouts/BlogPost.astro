@@ -95,4 +95,26 @@ const { title, description, pubDate, updatedDate, heroImage, heroImageAlt } = As
 		text-decoration-color: rgba(var(--ink), 0.3);
 		text-underline-offset: 2px;
 	}
+	.body :global(table) {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9em;
+	}
+	.body :global(th),
+	.body :global(td) {
+		padding: 0.5em 0.75em;
+		border: 1px solid rgb(var(--line));
+		white-space: nowrap;
+	}
+	.body :global(th) {
+		background: rgba(var(--ink), 0.05);
+		font-weight: 600;
+		text-align: left;
+	}
+	.body :global(tr:nth-child(even) td) {
+		background: rgba(var(--ink), 0.02);
+	}
 </style>
