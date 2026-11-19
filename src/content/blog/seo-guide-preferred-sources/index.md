@@ -65,16 +65,97 @@ I wanted to prove directionally if Preferred Sources have any impact. So I used 
 
 Here are the results:
 
-| Domain | Market | Preferred Source | Queries | Cited | Increase | Nr. Pos 1 | Increase | Avg Position |
-|---|---|---|---|---|---|---|---|---|
-| [3fe.com](http://3fe.com) (local + ecommerce) | Google Ireland | ON | 53 | 26 | 0% | 19 | +216% | 4.58 |
-| [3fe.com](http://3fe.com) (local + ecommerce) | Google Ireland | OFF | 26 | 6 | — | — | — | 7.15 |
-| [irishtimes.com](http://irishtimes.com) (news) | Google Ireland | ON | 78 | 30 | +20% | 30 | +650% | 1 |
-| irishtimes.com (news) | Google Ireland | OFF | 25 | 4 | — | — | — | 4.16 |
-| [searchengineland.com](http://searchengineland.com) (SEO news) | Google US | ON | 88 | 27 | +3.8% | 26 | +160% | 1.91 |
-| [searchengineland.com](http://searchengineland.com) (SEO news) | Google US | OFF | 26 | 10 | — | — | — | 4.4 |
-| [ge.globo.com](http://ge.globo.com) (sports) | Google Brazil | ON | 50 | 30 | +7% | 29 | +70% | 1.33 |
-| [ge.globo.com](http://ge.globo.com) (sports) | Google Brazil | OFF | 28 | 17 | — | — | — | 2.06 |
+{% table %}
+- Domain
+- Market
+- Preferred Source
+- Queries
+- Cited
+- Increase
+- Nr. Pos 1
+- Increase
+- Avg Position
+---
+- [3fe.com](http://3fe.com)
+- IE
+- ON
+- 53
+- 26
+- 0%
+- 19
+- +216%
+- 4.58
+---
+- [3fe.com](http://3fe.com)
+- IE
+- OFF
+- 26
+- 6
+- —
+- —
+- —
+- 7.15
+---
+- [irishtimes.com](http://irishtimes.com)
+- IE
+- ON
+- 78
+- 30
+- +20%
+- 30
+- +650%
+- 1
+---
+- irishtimes.com
+- IE
+- OFF
+- 25
+- 4
+- —
+- —
+- —
+- 4.16
+---
+- [searchengineland.com](http://searchengineland.com)
+- US
+- ON
+- 88
+- 27
+- +3.8%
+- 26
+- +160%
+- 1.91
+---
+- [searchengineland.com](http://searchengineland.com)
+- US
+- OFF
+- 26
+- 10
+- —
+- —
+- —
+- 4.4
+---
+- [ge.globo.com](http://ge.globo.com)
+- BR
+- ON
+- 50
+- 30
+- +7%
+- 29
+- +70%
+- 1.33
+---
+- [ge.globo.com](http://ge.globo.com)
+- BR
+- OFF
+- 28
+- 17
+- —
+- —
+- —
+- 2.06
+{% /table %}
 
 ## Test Limitations
 
