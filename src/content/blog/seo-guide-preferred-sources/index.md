@@ -9,8 +9,6 @@ description: >
 pubDate: 2026-11-19
 updatedDate: 2026-11-19
 ---
-## A guide to Google Preferred Sources: How to get instant visibility into AI Mode\
-
 Like thousands of other websites, I implemented Preferred Sources. In the dark. I see banners everywhere. How many users select my website as a preferred source? No idea. Does it even do anything? I also didn’t know.\
 \
 Until Google shared the first wave of emails through Google Search Console showing how many users had selected my website as a preferred source. Then I got to poke a little further - and I found a goldmine.
