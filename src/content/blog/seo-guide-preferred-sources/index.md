@@ -7,6 +7,7 @@ description: >
   optimization lever for a website and how you can test in front of your clients
   and make it work like magic.
 pubDate: 2026-11-19
+updatedDate: 2026-11-19
 ---
 ## A guide to Google Preferred Sources: How to get instant visibility into AI Mode\
 
