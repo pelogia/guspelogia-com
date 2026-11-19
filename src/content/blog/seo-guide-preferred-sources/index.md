@@ -63,7 +63,7 @@ There’s no secret on the prompt. You can use something along the lines of:\
 
 I wanted to prove directionally if Preferred Sources have any impact. So I used SE Ranking to pick a group of 50 to 90 high and medium volume keywords the domain already ranked for and let Claude do the boring work. It’s a bit unsettling to give access to an AI to do things in your computer, to see your browser acting on its own, loading pages while my mouse and keyboards are doing something else. But that’s another story.
 
-Here are the results:\
+Here are the results:
 
 {% table %}
 ---
