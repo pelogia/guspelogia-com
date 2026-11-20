@@ -65,16 +65,97 @@ I wanted to prove directionally if Preferred Sources have any impact. I used SE 
 
 Here are the results:
 
-| Domain | Market | Preferred Source | Queries | Cited | Increase | Nr. Pos 1 | Increase | Avg Position |
-|---|---|---|---|---|---|---|---|---|
-| 3fe.com (local) | Ireland | ON | 53 | 26 | 0% | 19 | +216% | 4.58 |
-| 3fe.com (local) | Ireland | OFF | 26 | 6 | — | — | — | 7.15 |
-| irishtimes.com (news) | Ireland | ON | 78 | 30 | +20% | 30 | +650% | 1 |
-| irishtimes.com (news) | Ireland | OFF | 25 | 4 | — | — | — | 4.16 |
-| searchengineland.com (SEO news) | US | ON | 88 | 27 | +3.8% | 26 | +160% | 1.91 |
-| searchengineland.com (SEO news) | US | OFF | 26 | 10 | — | — | — | 4.4 |
-| ge.globo.com (sports) | Brazil | ON | 50 | 30 | +7% | 29 | +70% | 1.33 |
-| ge.globo.com (sports) | Brazil | OFF | 28 | 17 | — | — | — | 2.06 |
+{% table %}
+- Domain
+- Market
+- Preferred Source
+- Queries
+- Cited
+- Increase
+- Nr. Pos 1
+- Increase
+- Avg Position
+---
+- 3fe.com (local)
+- Ireland
+- ON
+- 53
+- 26
+- 0%
+- 19
+- +216%
+- 4.58
+---
+- 3fe.com (local)
+- Ireland
+- OFF
+- 26
+- 6
+- —
+- —
+- —
+- 7.15
+---
+- irishtimes.com (news)
+- Ireland
+- ON
+- 78
+- 30
+- +20%
+- 30
+- +650%
+- 1
+---
+- irishtimes.com (news)
+- Ireland
+- OFF
+- 25
+- 4
+- —
+- —
+- —
+- 4.16
+---
+- searchengineland.com (SEO news)
+- US
+- ON
+- 88
+- 27
+- +3.8%
+- 26
+- +160%
+- 1.91
+---
+- searchengineland.com (SEO news)
+- US
+- OFF
+- 26
+- 10
+- —
+- —
+- —
+- 4.4
+---
+- ge.globo.com (sports)
+- Brazil
+- ON
+- 50
+- 30
+- +7%
+- 29
+- +70%
+- 1.33
+---
+- ge.globo.com (sports)
+- Brazil
+- OFF
+- 28
+- 17
+- —
+- —
+- —
+- 2.06
+{% /table %}
 
 ### Test Limitations
 
@@ -89,8 +170,6 @@ Even with Preferred Sources selected, sometimes the results change and a domain 
 I’m sure there are better and faster ways to do this, but I got enough evidence to see the value behind Preferred Sources and make it worth implementing.
 
 ## How to attract users to become a preferred source
-
-Great, so I proved a point that Preferred Sources get you to the top of Google. How will you convince your audience to choose you?
 
 Great, so I proved a point that Preferred Sources get you to the top of Google. How will you convince your audience to choose you? There are multiple fronts:\
 \
