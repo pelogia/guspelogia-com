@@ -7,6 +7,7 @@ description: >-
   users to select your site — including real data from testing across four
   domains.
 pubDate: 2026-11-19
+heroImage: ../../../assets/uploads/blog/google-preferred-sources-guide/heroImage.png
 ---
 Like thousands of other websites, I implemented Preferred Sources. In the dark. I see banners everywhere. How many users select my website as a preferred source? No idea. Does it even do anything? I also didn’t know.\
 \
