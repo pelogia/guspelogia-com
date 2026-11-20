@@ -15,42 +15,29 @@ function convertMarkdocTablesToGfm(content: string): string {
 	return content.replace(
 		/\{% table %\}([\s\S]*?)\{% \/table %\}/g,
 		(original, inner) => {
-			// Keystatic puts a --- between the header row and body rows
-			const sepMatch = inner.match(/^[ \t]*---[ \t]*$/m);
-			if (!sepMatch) return original;
+			// Keystatic uses --- as a row separator (between every row, not just header/body)
+			const sections = inner.split(/^[ \t]*---[ \t]*$/m);
 
-			const sepIdx = inner.indexOf(sepMatch[0]);
-			const headerSection = inner.slice(0, sepIdx);
-			const bodySection = inner.slice(sepIdx + sepMatch[0].length);
-
-			function parseRows(text: string): string[][] {
-				const rows: string[][] = [];
-				let row: string[] = [];
-				for (const line of text.split('\n')) {
-					const t = line.trim();
-					if (/^[-*]\s+/.test(t)) {
-						row.push(t.replace(/^[-*]\s+/, '').trim());
-					} else if (!t && row.length > 0) {
-						rows.push(row);
-						row = [];
-					}
-				}
-				if (row.length > 0) rows.push(row);
-				return rows;
+			function parseCells(text: string): string[] {
+				return text
+					.split('\n')
+					.map((l) => l.trim())
+					.filter((l) => /^[-*]\s+/.test(l))
+					.map((l) => l.replace(/^[-*]\s+/, '').trim());
 			}
 
-			const headerRows = parseRows(headerSection);
-			const bodyRows = parseRows(bodySection);
-			if (headerRows.length === 0) return original;
+			const rows = sections.map(parseCells).filter((r) => r.length > 0);
+			if (rows.length === 0) return original;
 
-			const headers = headerRows[0];
+			const headers = rows[0];
+			const dataRows = rows.slice(1);
 			const esc = (s: string) => s.replace(/\|/g, '\\|');
 
 			return [
 				'',
 				`| ${headers.map(esc).join(' | ')} |`,
 				`| ${headers.map(() => '---').join(' | ')} |`,
-				...bodyRows.map((r) => `| ${headers.map((_, i) => esc(r[i] ?? '')).join(' | ')} |`),
+				...dataRows.map((r) => `| ${headers.map((_, i) => esc(r[i] ?? '')).join(' | ')} |`),
 				'',
 			].join('\n');
 		},
