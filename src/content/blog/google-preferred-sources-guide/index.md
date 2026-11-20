@@ -1,9 +1,13 @@
 ---
-title: 'A simple guide to Google Preferred Sources: How to get instant visibility into AI Mode'
-description: 'How Google Preferred Sources works, how to test its impact, and how to get users to select your site — including real data from testing across four domains.'
+title: >-
+  A guide to Google Preferred Sources: How to get instant visibility into AI
+  Mode
+description: >-
+  How Google Preferred Sources works, how to test its impact, and how to get
+  users to select your site — including real data from testing across four
+  domains.
 pubDate: 2026-11-19
 ---
-
 Like thousands of other websites, I implemented Preferred Sources. In the dark. I see banners everywhere. How many users select my website as a preferred source? No idea. Does it even do anything? I also didn't know.
 
 Until Google shared the first wave of emails through Google Search Console showing how many users had selected my website as a preferred source. Then I got to poke a little further — and I found a goldmine.
@@ -15,6 +19,8 @@ This blog post is a guide to show you how Preferred Sources is the most direct o
 Google Preferred Sources is a user-driven personalization feature in Google Search that lets you select your favorite websites. Initially, it was only for news publications — now it's for every website.
 
 In their own words: *"In AI Mode and AI Overviews, your content can be highlighted with a 'preferred' badge for users who have selected your site as a preferred source."* I dare to say that every website is listed here, even the SearchIRL SEO meetup website that has been live for three weeks, has no external links and only got traffic from social and its own newsletter.
+
+![](../../../assets/uploads/blog/google-preferred-sources-guide/Screenshot%202026-11-17%20at%2023.40.12.png)
 
 Although Google's message is a little vague ("your content *can* be highlighted"), Preferred Sources actually does more:
 
@@ -40,6 +46,8 @@ Yes, it does. I wouldn't be writing this blog post otherwise. I'll show you how 
 
 Keep in mind: this is personalization. Once you select a domain as a Preferred Source, it instantly starts ranking higher — for that single user. The reward is small, but happens instantly. So you prove your point: add a website as a Preferred Source and choose a query they're likely to rank for. Then, remove them from your list and run the query again.
 
+![](../../../assets/uploads/blog/google-preferred-sources-guide/Screenshot%202026-11-17%20at%2023.35.37.png)
+
 You can do this manually by opening every URL, semi-automatically by appending `&udm=50` in your URLs — like `https://www.google.ie/search?hl=en-IE&q=how+to+make+cold+brew+coffee&udm=50` — or you can use agentic browsing.
 
 I asked Claude Desktop (Sonnet 5.5) with Claude's Chrome extension to navigate my browser, save every result and compare the personalized vs non-personalized result. You need to run it twice (adding/removing a website as a preferred source). I tried the non-personalized scrape with DataForSEO but the results were a bit odd, so I decided to run both on the browser.
@@ -56,38 +64,107 @@ I wanted to prove directionally if Preferred Sources have any impact. I used SE 
 
 Here are the results:
 
-| Domain | Market | Preferred Source | Queries | Cited | Nr. Pos 1 | Avg Position |
-|---|---|---|---|---|---|---|
-| 3fe.com (local + ecommerce) | Google Ireland | ON | 53 | 26 (0% increase) | 19 (+216%) | 4.58 |
-| 3fe.com (local + ecommerce) | Google Ireland | OFF | 26 | 6 | — | 7.15 |
-| irishtimes.com (news) | Google Ireland | ON | 78 | 30 (+20%) | 30 (+650%) | 1 |
-| irishtimes.com (news) | Google Ireland | OFF | 25 | 4 | — | 4.16 |
-| searchengineland.com (SEO news) | Google US | ON | 88 | 27 (+3.8%) | 26 (+160%) | 1.91 |
-| searchengineland.com (SEO news) | Google US | OFF | 26 | 10 | — | 4.4 |
-| ge.globo.com (sports) | Google Brazil | ON | 50 | 30 (+7%) | 29 (+70%) | 1.33 |
-| ge.globo.com (sports) | Google Brazil | OFF | 28 | 17 | — | 2.06 |
+{% table %}
+- Domain
+- Market
+- Preferred Source
+- Queries
+- Cited
+- Nr. Pos 1
+- Avg Position
+---
+- 3fe.com (local + ecommerce)
+- Google Ireland
+- ON
+- 53
+- 26 (0% increase)
+- 19 (+216%)
+- 4.58
+---
+- 3fe.com (local + ecommerce)
+- Google Ireland
+- OFF
+- 26
+- 6
+- —
+- 7.15
+---
+- irishtimes.com (news)
+- Google Ireland
+- ON
+- 78
+- 30 (+20%)
+- 30 (+650%)
+- 1
+---
+- irishtimes.com (news)
+- Google Ireland
+- OFF
+- 25
+- 4
+- —
+- 4.16
+---
+- searchengineland.com (SEO news)
+- Google US
+- ON
+- 88
+- 27 (+3.8%)
+- 26 (+160%)
+- 1.91
+---
+- searchengineland.com (SEO news)
+- Google US
+- OFF
+- 26
+- 10
+- —
+- 4.4
+---
+- ge.globo.com (sports)
+- Google Brazil
+- ON
+- 50
+- 30 (+7%)
+- 29 (+70%)
+- 1.33
+---
+- ge.globo.com (sports)
+- Google Brazil
+- OFF
+- 28
+- 17
+- —
+- 2.06
+{% /table %}
 
 ### Test Limitations
 
-This is a limited test: I didn't have competing domains as a preferred source, and I picked keywords the domain already ranked for somewhere between page one and three on Google. As Google plays cat and mouse with SERP scrapers, my IP got blocked a few times, so I had to wait and run the test again after a few minutes.
+I wanted to find out if adding a domain under preferred sources made any difference. It does. In a world where clicks are decreasing and we’ll increasingly depend of word-of-mouth word-of-ai, being recommended is highly relevant.
 
-Even with Preferred Sources selected, sometimes the results change and a domain doesn't always appear as an answer — similar to issues we've seen with prompt tracking.
+Of course, this is a limited test: I didn’t have competing domains as a preferred source, I picked keywords the domain already ranked for somewhere between page one and three on Google. As Google is playing catch and mouse with SERP scrapers, my IP got blocked a few times, so I had to wait and run the test again after a few minutes. A little frustrating to think AI was doing something, when in reality it’s waiting for an instruction.
 
-I'm sure there are better and faster ways to do this, but I got enough evidence to see the value behind Preferred Sources and make it worth implementing.
+![](../../../assets/uploads/blog/google-preferred-sources-guide/Screenshot%202026-11-17%20at%2023.43.11.png)
+
+Even with Preferred Sources selected, sometimes the results change and a domain doesn’t always appear as an answer, similar to issues we’ve with prompt tracking.
+
+I’m sure there are better and faster ways to do this, but I got enough evidence to see the value behind Preferred Sources and make it worth implementing.
 
 ## How to attract users to become a preferred source
 
 Great, so I proved a point that Preferred Sources get you to the top of Google. How will you convince your audience to choose you?
 
-**Long-Form Content Pages:** A natural place to implement this. It doesn't take a user away from a conversion, like buying a product, and it's a place where CTAs are common. Plus, as long as it's the same domain, you could benefit from information traffic to influence commercial page results.
+Great, so I proved a point that Preferred Sources get you to the top of Google. How will you convince your audience to choose you? There are multiple fronts:\
+\
+**Long-Form Content Pages:** this is a natural place to implement this. It doesn’t take a user away from a conversion, like buying a product, and it’s a place where it is common to see CTAs. Plus, getting as long as it’s the same domain, you could benefit from information traffic to influence commercial pages results.\
+\
+**E-mail:** a user who subscribed to your newsletter and bothered to open it? This guy really likes you. Why not ask for an extra proof of love by creating a preferred source connection? It’s not exclusive, it’s just… preferred. Jokes aside, this is a great place to ask for a small action.&nbsp;
 
-**Email:** A user who subscribed to your newsletter and bothered to open it? This person really likes you. Why not ask for an extra proof of love by creating a preferred source connection? It's not exclusive, it's just… preferred. This is a great place to ask for a small action.
+**Sticky Footer:** depending on your niche, your hunger for being preferred, you could add this as a sticky footer. It’s always visible, never on the way.
 
-**Sticky Footer:** Depending on your niche and your hunger for being preferred, you could add this as a sticky footer. Always visible, never in the way.
-
-**Social Media:** For a personal brand — like SEOs tend to have — why not ask on social media? If this becomes a big thing, you could even run ads.
-
-On the technical side, Google suggests Standard JavaScript implementation, Advanced JavaScript implementation with custom design assets, or Deeplink implementation.
+**Social Media:** for a personal brand like SEOs tend to have, why not ask on social media? If this becomes a big thing, you could even run ads - why not?\
+\
+[On the technical side](https://developers.google.com/search/docs/appearance/preferred-sources), Google suggests Standard JavaScript implementation, Advanced JavaScript implementation with custom design assets or Deeplink implementation.
 
 ## Conclusion: When AI Mode is standard, Preferred Sources will be big
 
