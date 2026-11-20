@@ -8,17 +8,17 @@ description: >-
   domains.
 pubDate: 2026-11-19
 ---
-Like thousands of other websites, I implemented Preferred Sources. In the dark. I see banners everywhere. How many users select my website as a preferred source? No idea. Does it even do anything? I also didn't know.
-
-Until Google shared the first wave of emails through Google Search Console showing how many users had selected my website as a preferred source. Then I got to poke a little further — and I found a goldmine.
+Like thousands of other websites, I implemented Preferred Sources. In the dark. I see banners everywhere. How many users select my website as a preferred source? No idea. Does it even do anything? I also didn’t know.\
+\
+Until Google shared the first wave of emails through Google Search Console showing how many users had selected my website as a preferred source. Then I got to poke a little further - and I found a goldmine.
 
 This blog post is a guide to show you how Preferred Sources is the most direct optimization lever for a website and how you can test in front of your clients and make it work like magic.
 
 ## Why Preferred Sources Matter
 
-Google Preferred Sources is a user-driven personalization feature in Google Search that lets you select your favorite websites. Initially, it was only for news publications — now it's for every website.
+Google Preferred Sources is a user-driven personalization feature in Google Search that lets you select your favorite websites. Initially, it was only for news publications - now it’s for every website.
 
-In their own words: *"In AI Mode and AI Overviews, your content can be highlighted with a 'preferred' badge for users who have selected your site as a preferred source."* I dare to say that every website is listed here, even the SearchIRL SEO meetup website that has been live for three weeks, has no external links and only got traffic from social and its own newsletter.
+In their own words “In AI Mode and AI Overviews, your content can be highlighted with a "preferred" badge for users who have selected your site as a preferred source”. I dare to say that every website is listed here, even SearchIRL SEO meetup website that has been live for three weeks, has no external links and only got traffic from social and its own newsletter.
 
 ![](../../../assets/uploads/blog/google-preferred-sources-guide/Screenshot%202026-11-17%20at%2023.40.12.png)
 
@@ -32,7 +32,7 @@ If you're looking for Google's direct stats, they say "readers are twice as like
 
 ## An honest view: I took a bet implementing Preferred Sources
 
-I'll be honest: when I first implemented Preferred Sources, it was a ticking-a-box exercise. I hoped this could make a difference but didn't have any data to prove it. Yes, implementing things is easier than ever, but it still takes time and every choice you make still means something else is out. I went by gut.
+When I first implemented Preferred Sources, it was a ticking-a-box exercise. I hoped this could make a difference but didn't have any data to prove it. Yes, implementing things is easier than ever, but it still takes time and every choice you make still means something else is out. I went by gut.
 
 So I created at least a proxy: Google doesn't say anywhere if users are clicking on this feature, so I created a proxy. I can at least see how many users clicked on it and intended to add my website as a preferred source. Better than nothing.
 
@@ -64,16 +64,79 @@ I wanted to prove directionally if Preferred Sources have any impact. I used SE 
 
 Here are the results:
 
-| Domain | Market | Preferred Source | Queries | Cited | Increase | Nr. Pos 1 | Increase | Avg Position |
-|---|---|---|---|---|---|---|---|---|
-| 3fe.com (local + ecommerce) | Google Ireland | ON | 53 | 26 | 0% | 19 | +216% | 4.58 |
-| 3fe.com (local + ecommerce) | Google Ireland | OFF | 26 | 6 | — | — | — | 7.15 |
-| irishtimes.com (news) | Google Ireland | ON | 78 | 30 | +20% | 30 | +650% | 1 |
-| irishtimes.com (news) | Google Ireland | OFF | 25 | 4 | — | — | — | 4.16 |
-| searchengineland.com (SEO news) | Google US | ON | 88 | 27 | +3.8% | 26 | +160% | 1.91 |
-| searchengineland.com (SEO news) | Google US | OFF | 26 | 10 | — | — | — | 4.4 |
-| ge.globo.com (sports) | Google Brazil | ON | 50 | 30 | +7% | 29 | +70% | 1.33 |
-| ge.globo.com (sports) | Google Brazil | OFF | 28 | 17 | — | — | — | 2.06 |
+{% table %}
+- Domain
+- Market
+- Preferred Source
+- Queries
+- Cited
+- Nr. Pos 1
+- Avg Position
+---
+- 3fe.com (local)
+- Ireland
+- ON
+- 53
+- 26 (0% increase)
+- 19 (+216%)
+- 4.58
+---
+- 3fe.com (local)
+- Ireland
+- OFF
+- 26
+- 6
+- —
+- 7.15
+---
+- irishtimes.com (news)
+- Ireland
+- ON
+- 78
+- 30 (+20%)
+- 30 (+650%)
+- 1
+---
+- irishtimes.com (news)
+- Ireland
+- OFF
+- 25
+- 4
+- —
+- 4.16
+---
+- searchengineland.com (SEO news)
+- US
+- ON
+- 88
+- 27 (+3.8%)
+- 26 (+160%)
+- 1.91
+---
+- searchengineland.com (SEO news)
+- US
+- OFF
+- 26
+- 10
+- —
+- 4.4
+---
+- ge.globo.com (sports)
+- Brazil
+- ON
+- 50
+- 30 (+7%)
+- 29 (+70%)
+- 1.33
+---
+- ge.globo.com (sports)
+- Brazil
+- OFF
+- 28
+- 17
+- —
+- 2.06
+{% /table %}
 
 ### Test Limitations
 
