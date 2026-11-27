@@ -11,7 +11,7 @@ heroImage: ../../../assets/uploads/blog/google-preferred-sources-guide/heroImage
 ---
 Like thousands of other websites, I implemented Preferred Sources. In the dark. I see banners everywhere. How many users select my website as a preferred source? No idea. Does it even do anything? I also didn’t know.\
 \
-Until Google shared the first wave of emails through Google Search Console showing how many users had selected my website as a preferred source. Then I got to poke a little further - and I found a goldmine.
+Until Google shared the first wave of emails through Google Search Console showing how many users had selected my website as a preferred source. Then I got to poke a little further - and I found a goldmine. Unfortunately, I believe Google only sent these alerts only once - and I've a hypothesis that only domains with at least 1000 subscribers got it.
 
 This blog post is a guide to show you how Preferred Sources is the most direct optimization lever for a website and how you can test in front of your clients and make it work like magic.
 
@@ -29,7 +29,7 @@ Although Google's message is a little vague ("your content *can* be highlighted"
 - Optimization is instant: add or remove a domain, the next page load has different results
 - Works at a domain level, so you could have a CTA on your blog but influence commercial pages
 
-If you're looking for Google's direct stats, they say "readers are twice as likely to click through to a website after selecting it as a Preferred Source." I tend to believe it because of the instant position bump a page gets on answers. That also means your GSC data is even more skewed, because some users — likely those who care a lot about your brand, enough to select you as a preferred source — will bring your average numbers higher.
+If you're looking for [Google's official stats](https://blog.google/products-and-platforms/products/search/original-high-quality-content-search/), they say "readers are twice as likely to click through to a website after selecting it as a Preferred Source." I tend to believe it because of the instant position bump a page gets on answers. That also means your GSC data is even more skewed, because some users — likely those who care a lot about your brand, enough to select you as a preferred source — will bring your average numbers higher.
 
 ## An honest view: I took a bet implementing Preferred Sources
 
@@ -179,7 +179,9 @@ Great, so I proved a point that Preferred Sources get you to the top of Google. 
 
 **Sticky Footer:** depending on your niche, your hunger for being preferred, you could add this as a sticky footer. It’s always visible, never on the way.
 
-**Social Media:** for a personal brand like SEOs tend to have, why not ask on social media? If this becomes a big thing, you could even run ads - why not?\
+**Social Media:** for a personal brand like SEOs tend to have, why not ask on social media? If this becomes a big thing, you could even run ads - why not?
+
+**To unlock a paywalled page**: I got this tip from [Lorenzo Diaco](https://www.linkedin.com/in/lorenzodiaco/), who used the button ‘subscribe to preferred sources’ as a sort of free paywall. On this test, conversion rates are low: 200 subscribers for an offer showed over 13k times (1.5%) conversion rate. I still think it's clever and I feel there's room for improvement.\
 \
 [On the technical side](https://developers.google.com/search/docs/appearance/preferred-sources), Google suggests Standard JavaScript implementation, Advanced JavaScript implementation with custom design assets or Deeplink implementation.
 
