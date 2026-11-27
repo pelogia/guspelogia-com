@@ -181,7 +181,7 @@ Great, so I proved a point that Preferred Sources get you to the top of Google. 
 
 **Social Media:** for a personal brand like SEOs tend to have, why not ask on social media? If this becomes a big thing, you could even run ads - why not?
 
-**To unlock a paywalled page**: I got this tip from [Lorenzo Diaco](https://www.linkedin.com/in/lorenzodiaco/), who used the button ‘subscribe to preferred sources’ as a sort of free paywall. On this test, conversion rates are low: 200 subscribers for an offer showed over 13k times (1.5%) conversion rate. I still think it's clever and I feel there's room for improvement.\
+**To unlock a paywall**: I got this tip from [Lorenzo Diaco](https://www.linkedin.com/in/lorenzodiaco/), who used the button ‘subscribe to preferred sources’ as a sort of free paywall. On this test, conversion rates are low: 200 subscribers for an offer showed over 13k times (1.5%) conversion rate. I still think it's clever and I feel there's room for improvement.\
 \
 [On the technical side](https://developers.google.com/search/docs/appearance/preferred-sources), Google suggests Standard JavaScript implementation, Advanced JavaScript implementation with custom design assets or Deeplink implementation.
 
